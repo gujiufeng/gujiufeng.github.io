@@ -1,67 +1,99 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-<title>Olivia I. Tian</title>
-</head>head>
-  <style>
-    body{
-   /* tell the browser which image to use */
-      background-image: url("images/background.jpg");
+  <title>Olivia I. Tian</title>
 
-      /* make it fill the window nicely */
-      background-size: cover;          /* scale to fill */
-      background-position: center;     /* keep it centered */
-      background-repeat: no-repeat;    /* don’t tile */
+  <style>
+    /* === General Page Setup === */
+    body {
+      background-image: url("images/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
-      background-color: #255;          /* fallback colour */
+      background-color: #255;
       font-family: "Arial", sans-serif;
       font-weight: bold;
       margin: 0;
-
-      /* Container to control spacing for both h1 and button */
-          .intro {
-      padding-top: 25vh;
-      padding-left: 7vh;
     }
 
-       /* Button style */
-    .about-button {
-      display: inline-block;
-      background-color: black;
-      color: white;
-      padding: 28px 28px;             /* size of the button (square look) */
-      border-radius: 20px;
+    /* === Top Bar === */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;   /* black background */
+      display: flex;
+      justify-content: flex-end; /* links to the right */
+      align-items: center;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: white;               /* white text */
       text-decoration: none;
-      font-size: 30px;
-      margin-top: 7px;               /* distance between the name and the button */
-      transition: background-color 0.3s, transform 0.2s; /* smooth hover effect */
-
-      .about-button:hover {
-      background-color: #333;         /* slightly lighter on hover */
-      transform: scale(1.05);         /* subtle grow on hover */
+      margin-left: 30px;
+      font-size: 20px;
+      transition: color 0.3s;
     }
+
+    .navbar a:hover {
+      color: #ffcc00; /* highlight color on hover */
+    }
+
+    /* === Intro Section (name + button) === */
+    .intro {
+      padding-top: 25vh; /* moves section down below navbar */
+      padding-left: 7vh;
     }
 
     h1 {
       color: white;
-      text-align: left;
+      font-size: 80px;
+      margin: 0;
+    }
 
-      /* 👇 This controls the size of the text */
-      font-size: 80px;   /* you can change 64px to whatever size you like */
-      
+    /* === About Me Button === */
+    .about-button {
+      display: inline-block;
+      background-color: black;
+      color: white;
+      padding: 28px 28px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 30px;
+      margin-top: 10px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .about-button:hover {
+      background-color: #333;
+      transform: scale(1.05);
     }
   </style>
+</head>
+
 <body>
+
+  <!-- 🌐 Top Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="paintings.html">Paintings</a>
+    <a href="aboutMe.html">About Me</a>
+    <a href="https://drive.google.com/file/d/1_u-T2V2hNnJ6lCmHohz8I3JINFAQW_Sp/view" target="_blank">Portfolio</a>
+    <a href="https://gujiufeng.itch.io" target="_blank">Itch.io</a>
+  </div>
+
+  <!-- ✨ Main Section -->
   <div class="intro">
     <h1>Olivia I. Tian</h1>
     <a href="aboutMe.html" class="about-button">About Me</a>
   </div>
+
 </body>
-  
-<html>
+</html>
