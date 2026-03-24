@@ -1,0 +1,298 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      /* === General Page Setup === */
+    body {
+      /* background-image: url("images/background.jpg"); */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: white;
+      font-family: "Arial", sans-serif;
+      font-weight: bold;
+      margin: 0;
+    }
+
+  /* === Top Bar === */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;   /* black background */
+      display: flex;
+      justify-content: flex-start; /* links to the left */
+      align-items: center;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 100;
+      color: white;
+      gap: 20px;  /* 👈 space between flex items */
+    }
+
+    .navbar a {
+      color: white;               /* white text */
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00; /* highlight color on hover */
+    }
+
+    .portfolio {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 160px;
+    }
+
+    .tab {
+      font-family: Arial Black, sans-serif;
+      font-size: 36px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+
+    .tab:hover {
+      opacity: 0.5;
+    }
+
+    .tab.active {
+      opacity: 1;
+    }
+
+    .content {
+      margin-top: 40px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .game-title {
+      font-family: "Arial", sans-serif;
+      font-size: 22px;             
+      color: black;
+      text-decoration: none;
+      transition: 0.3s;
+
+    }
+
+    .game-title:hover {
+      opacity: 0.5;             /* hover 变灰（你可以换成别的颜色） */
+    }
+
+/* === gallery format === */
+    .gallery {
+      column-count: 5;
+      column-gap: 15px;
+      padding: 0 40px;
+      margin-top: 30px;
+    }
+
+    .gallery {
+      column-count: 5;          /* 控制一行大概 4–6 张 */
+      column-gap: 15px;
+      padding: 0 40px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      margin-bottom: 15px;
+      break-inside: avoid;      /* 防止图片被切开 */
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 4;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+    </style>
+<body>
+    <!-- 🌐 Top Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="https://gujiufeng.itch.io" target="_blank">ITCH</a>
+  </div>
+
+ <div class="portfolio">
+
+    <!-- Title Tabs -->
+    <div class="tabs">
+      <h1 class="tab active" onclick="showTab('games')">GAME PROJECTS</h1>
+      <h1 class="tab" onclick="showTab('paintings')">PAINTINGS</h1>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+
+      <!-- Game Projects -->
+      <div id="games" class="tab-content active">
+        <p>这里放你的游戏项目 👇</p>
+        <a href="Portfolio_Olivia Iris Tian.pdf" class="game-title">
+          OTHER PROJECTS
+        </a>
+      </div>
+
+      <!-- Paintings -->
+      <div id="paintings" class="tab-content">
+      <div class="gallery" id="painting-gallery"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JS 控制切换 -->
+<script>
+function showTab(tabName) {
+    // 隐藏所有内容
+    document.querySelectorAll('.tab-content').forEach(el => {
+    el.classList.remove('active');
+    });
+
+    // 取消所有标题高亮
+    document.querySelectorAll('.tab').forEach(el => {
+    el.classList.remove('active');
+    });
+
+    // 显示当前内容
+    document.getElementById(tabName).classList.add('active');
+
+    // 高亮当前标题
+    event.target.classList.add('active');
+}
+</script>
+
+<script>
+  // 等页面全部加载完再执行（关键！）
+  window.onload = function () {
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const gallery = document.getElementById("painting-gallery");
+
+    const images = [
+      "psc (1).jpg",
+      "psc (2).jpg",
+      "psc (3).jpg",
+      "psc.jpg",
+      "psc (4).jpg",
+      "psc (5).jpg",
+      "psc (6).jpg",
+      "psc (7).jpg",
+      "psc (8).jpg",
+    ];
+
+    // 生成图片
+    images.forEach(img => {
+      const imageElement = document.createElement("img");
+      imageElement.src = "Paintings/" + img;
+
+      imageElement.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = imageElement.src;
+      });
+
+      gallery.appendChild(imageElement);
+    });
+
+    // 关闭按钮（X）
+    closeBtn.onclick = () => {
+      lightbox.style.display = "none";
+    };
+
+    // 点击背景关闭
+    lightbox.onclick = (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    };
+
+    // ESC 关闭
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        lightbox.style.display = "none";
+      }
+    });
+
+  };
+</script>
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" id="lightbox-img">
+</div>
+
+</body>
+  
+<html>
