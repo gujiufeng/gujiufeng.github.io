@@ -50,6 +50,7 @@
     .portfolio {
       text-align: center;
       margin-top: 80px;
+      padding-bottom: 80px;
     }
 
     .tabs {
@@ -86,18 +87,7 @@
       display: block;
     }
 
-    .game-title {
-      font-family: "Arial", sans-serif;
-      font-size: 22px;             
-      color: black;
-      text-decoration: none;
-      transition: 0.3s;
 
-    }
-
-    .game-title:hover {
-      opacity: 0.5;             /* hover 变灰（你可以换成别的颜色） */
-    }
 
 /* === gallery format === */
     .gallery {
@@ -176,6 +166,85 @@
       font-size: 40px;
       cursor: pointer;
     }
+
+    .game-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin: 0px auto;
+      padding: 30px;
+      max-width: 900px;
+
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* 左边 */
+    .game-info {
+      width: 70%;
+      text-align: left;
+      padding-left: 30px;   /* 和图片拉开距离 */
+    }
+
+    /* 右边 */
+    .game-cover {
+      width: 23%;
+    }
+
+    .game-cover img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .game-title {
+      font-family: "Arial", sans-serif;
+      font-size: 22px;             
+      color: black;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .game-name {
+      font-family: "Arial", sans-serif;
+      font-size: 22px;             
+      color: black;
+      text-decoration: none;
+    }
+
+    .game-title:hover {
+      opacity: 0.5;             /* hover 变灰（你可以换成别的颜色） */
+    }
+
+    .game-desc {
+      font-size: 16px;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
+
+    /* itch 按钮 */
+    .itch-button {
+      display: inline-block;
+      padding: 10px 18px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .itch-button:hover {
+      background: #444;
+    }
+
+
     </style>
 <body>
     <!-- 🌐 Top Navigation Bar -->
@@ -196,21 +265,108 @@
     <div class="content">
 
       <!-- Game Projects -->
+      <!-- GoodNight -->
       <div id="games" class="tab-content active">
-        <p>这里放你的游戏项目 👇</p>
+        <div class="game-card">
+
+          <!-- 左边cover -->
+          <div class="game-cover">
+            <img src="images/GameProjectCovers/1.png" alt="game cover">
+          </div>
+
+          <!-- 右边info -->
+          <div class="game-info">
+            <h2 class="game-name">Good Night</h2>
+            <p class="game-desc">2D · Narrative · Puzzle ·  Advanture · Singleplayer</p>
+
+            <a href="https://gujiufeng.itch.io/good-night" target="_blank" class="itch-button">
+              ▶ Play on itch.io
+            </a>
+          </div>
+        </div>
+
+    <!-- Night Fairy Tales -->
+        <div class="game-card">
+
+          <div class="game-cover">
+            <img src="images/GameProjectCovers/2.png" alt="game cover">
+          </div>
+
+          <div class="game-info">
+            <h2 class="game-name">黑夜仙踪(Night Fairy Tale)</h2>
+            <p class="game-desc">2D · Strategy · Point&Click · Singleplayer</p>
+
+            <a href="https://gujiufeng.itch.io/heiyexianzong" target="_blank" class="itch-button">
+              ▶ Download from itch.io
+            </a>
+          </div>
+        </div>
+
+      <!-- Unfortunately -->
+        <div class="game-card">
+
+          <div class="game-cover">
+            <img src="images/GameProjectCovers/3.png" alt="game cover">
+          </div>
+
+          <div class="game-info">
+            <h2 class="game-name">"Unfortunately"</h2>
+            <p class="game-desc">Boardgame · Strategy · Multiplayer</p>
+
+            <a href="https://gujiufeng.itch.io/unfortunately-board-game" target="_blank" class="itch-button">
+              ▶ Download from itch.io
+            </a>
+          </div>
+        </div>
+
+      <!-- untitled -->
+        <div class="game-card">
+
+          <div class="game-cover">
+            <img src="images/GameProjectCovers/4.png" alt="game cover">
+          </div>
+
+          <div class="game-info">
+            <h2 class="game-name">Untitled.01</h2>
+            <p class="game-desc">3D · Narrative · Singleplayer</p>
+
+            <a href="https://gujiufeng.itch.io/untitled" target="_blank" class="itch-button">
+              ▶ Play on itch.io
+            </a>
+          </div>
+        </div>
+        
+      <!-- Wasp -->
+        <div class="game-card">
+
+          <div class="game-cover">
+            <img src="images/GameProjectCovers/6.png" alt="game cover">
+          </div>
+
+          <div class="game-info">
+            <h2 class="game-name">Wasp</h2>
+            <p class="game-desc">2D · Horror · Strategy · Point&Click · Singleplayer</p>
+
+            <a href="https://gujiufeng.itch.io/wasp" target="_blank" class="itch-button">
+              ▶ Play on itch.io
+            </a>
+          </div>
+        </div>
+
+
         <a href="Portfolio_Olivia Iris Tian.pdf" class="game-title">
-          OTHER PROJECTS
+          Other Projects
         </a>
       </div>
 
+
       <!-- Paintings -->
       <div id="paintings" class="tab-content">
-      <div class="gallery" id="painting-gallery"></div>
+        <div class="gallery" id="painting-gallery"></div>
       </div>
 
     </div>
-
-  </div>
+ </div>
 
   <!-- JS 控制切换 -->
 <script>
@@ -243,15 +399,19 @@ function showTab(tabName) {
     const gallery = document.getElementById("painting-gallery");
 
     const images = [
-      "psc (1).jpg",
-      "psc (2).jpg",
-      "psc (3).jpg",
-      "psc.jpg",
-      "psc (4).jpg",
-      "psc (5).jpg",
-      "psc (6).jpg",
-      "psc (7).jpg",
-      "psc (8).jpg",
+      "1.jpg",
+      "2.jpg",
+      "3.jpg",
+      "4.jpg",
+      "5.jpg",
+      "6.jpg",
+      "7.jpg",
+      "8.jpg",
+      "9.jpg",
+      "10.jpg",
+      "11.jpg",
+      "12.jpg",
+      "13.jpg",
     ];
 
     // 生成图片

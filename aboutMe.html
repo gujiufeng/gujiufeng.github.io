@@ -1,10 +1,176 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
   
 <title>About Me</title>
+
+<style>
+    body {
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #255;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        margin: 0;
+        }
+
+    /* === Top Bar === */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;   /* black background */
+      display: flex;
+      justify-content: flex-start; /* links to the left */
+      align-items: center;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 100;
+      color: white;
+      gap: 20px;  /* 👈 space between flex items */
+    }
+
+    .navbar a {
+      color: white;               /* white text */
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00; /* highlight color on hover */
+    }
+
+
+    /* 半透明遮罩 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.6); /* 控制透明度 */
+      z-index: -1;
+    }
+
+    /* 主布局 */
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90vh;
+      padding: 0 10%;
+      box-sizing: border-box;
+    }
+
+    /* 左边文字 */
+    .about-text {
+      width: 65%;
+      text-align: left;
+    }
+
+    .about-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    /* 右边头像 */
+    .about-image {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image img {
+      image: url("images/profile.jpg");
+      width: 250px;
+      border-radius: 20px;   /* 圆角 */
+    }
+
+    /* 联系方式*/
+    .contact-box {
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+      line-height: 1.8;
+
+      /*background: rgba(255, 255, 255, 0.4); */
+      padding: 20px 30px;
+      border-radius: 12px;
+      /*backdrop-filter: blur(10px);   毛玻璃效果（很加分） */
+    }
+
+    /* ✨ 动画 */
+    .fade-line {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    /* 每一行延迟（关键！） */
+    .fade-line:nth-child(1) { animation-delay: 0.2s; }
+    .fade-line:nth-child(2) { animation-delay: 0.4s; }
+    .fade-line:nth-child(3) { animation-delay: 0.6s; }
+    .fade-line:nth-child(4) { animation-delay: 0.8s; }
+    .fade-line:nth-child(5) { animation-delay: 1s; }
+    .fade-line:nth-child(6) { animation-delay: 1.2s; }
+    .fade-line:nth-child(7) { animation-delay: 1.4s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+</style>
+
 <body>
-  <h1>Nothing here :-P<h1>
+
+  <!-- 🌐 Top Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">HOME</a>    
+    <a href="portfolio.html">PORTFOLIO</a>
+  </div>
+
+  <!-- 背景遮罩 -->
+  <div class="overlay"></div>
+
+  <!-- 主内容 -->
+  <div class="about-container">
+
+    <!-- 左边文字 -->
+    <div class="about-text">
+      <h1 class="fade-line">Hello, I'm Olivia</h1>
+      <p class="fade-line">Game artist,designer & developer.</p>
+      <p class="fade-line">Now in University of Southern California, Game Developement & Interactive Design program.</p>
+      <p class = "fade-line">I love creating immersive worlds and visual storytelling.</p>
+      <p class="fade-line">Currently exploring shader design, 3D art, and interactive experiences.</p>
+    </div>
+
+    <!-- 右边头像 -->
+    <div class="about-image fade-line">
+      <img src="images/profile.jpg" alt="avatar">
+    </div>
+  </div>
+
+  <div class="contact">
+  <div class="contact-box">
+    <p>Email: oliviatian412@gmail.com</p>
+  </div>
+
+
+</div>
+
 </body>
   
 <html>
